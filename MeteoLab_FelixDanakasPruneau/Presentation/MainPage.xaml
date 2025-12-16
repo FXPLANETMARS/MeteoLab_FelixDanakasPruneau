@@ -1,0 +1,38 @@
+﻿<Page x:Class="MeteoLab_FelixDanakasPruneau.Presentation.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MeteoLab_FelixDanakasPruneau.Presentation"
+      xmlns:uen="using:Uno.Extensions.Navigation.UI"
+      xmlns:utu="using:Uno.Toolkit.UI"
+      xmlns:um="using:Uno.Material"
+      NavigationCacheMode="Required"
+      Background="{ThemeResource BackgroundBrush}">
+    <ScrollViewer>
+        <StackPanel x:Name="FormulaireMeteo" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15" Width="300">
+
+            <TextBlock Text="Saisie Météo" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Date du relevé" />
+            <DatePicker Date="{Binding Date, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+
+            <TextBlock Text="Température (°C)" />
+            <TextBox Text="{Binding Temperature, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Ex: 22.5" />
+
+            <TextBlock Text="Humidité (%)" />
+            <TextBox Text="{Binding Humidite, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="0-100" />
+
+            <TextBlock Text="Précipitations (mm)" />
+            <TextBox Text="{Binding Precipitations, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" PlaceholderText="Ex: 15" />
+
+            <Button Content="Enregistrer le relevé" Click="Enregistrer_Click" HorizontalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}"/>
+
+            <TextBlock x:Name="MessageErreur" Foreground="Red" TextWrapping="Wrap" />
+
+            <Button Content="🏠 Retour au Menu" Click="RetourMenu_Click" 
+              HorizontalAlignment="Center" Margin="0,20,0,0" Background="LightGray"/>
+
+            <Button Content="📂 Importer CSV (Demo)" Click="ImporterCSV_Click" 
+             HorizontalAlignment="Stretch" Margin="0,10,0,0" Background="LightBlue"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

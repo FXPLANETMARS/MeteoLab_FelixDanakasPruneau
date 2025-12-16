@@ -1,0 +1,62 @@
+﻿<Page x:Class="MeteoLab_FelixDanakasPruneau.Presentation.StatsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MeteoLab_FelixDanakasPruneau.Presentation"
+      Background="{ThemeResource BackgroundBrush}">
+
+    <StackPanel Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+        <TextBlock Text="Analyses Statistiques" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Padding="15" CornerRadius="8">
+            <StackPanel Spacing="10">
+                <TextBlock Text="Choisir la période :" FontWeight="SemiBold"/>
+
+                <DatePicker x:Name="DateDebut" Header="Date de début" HorizontalAlignment="Stretch"/>
+                <DatePicker x:Name="DateFin" Header="Date de fin" HorizontalAlignment="Stretch"/>
+
+                <Button Content="Calculer" Click="Calculer_Click" HorizontalAlignment="Stretch" Style="{StaticResource AccentButtonStyle}"/>
+
+                <TextBlock x:Name="MessageErreur" Foreground="Red" FontSize="12" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+
+        <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto" RowSpacing="10" ColumnSpacing="10">
+            <Border Grid.Row="0" Grid.Column="0" Background="#E6F4F1" Padding="10" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="Moyenne" Foreground="DarkSlateGray"/>
+                    <TextBlock x:Name="ValMoyenne" Text="-" FontSize="18" FontWeight="Bold" Foreground="Black"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="1" Background="#FFF4E6" Padding="10" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="Médiane" Foreground="DarkOrange"/>
+                    <TextBlock x:Name="ValMediane" Text="-" FontSize="18" FontWeight="Bold" Foreground="Black"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="2" Background="#E6F4F1" Padding="10" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="Écart-Type" Foreground="DarkSlateGray"/>
+                    <TextBlock x:Name="ValEcartType" Text="-" FontSize="18" FontWeight="Bold" Foreground="Black"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="0" Background="#E6E6FA" Padding="10" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="Minimum" Foreground="DarkSlateBlue"/>
+                    <TextBlock x:Name="ValMin" Text="-" FontSize="18" FontWeight="Bold" Foreground="Black"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="2" Background="#FFE6E6" Padding="10" CornerRadius="5">
+                <StackPanel>
+                    <TextBlock Text="Maximum" Foreground="DarkRed"/>
+                    <TextBlock x:Name="ValMax" Text="-" FontSize="18" FontWeight="Bold" Foreground="Black"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Button Content="Retour au Menu" Click="Retour_Click" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+    </StackPanel>
+</Page>
